@@ -14,14 +14,14 @@ module TicTacToe
 		end
 
 		context "#name" do 
-			it "returns name" do 
+			it "returns the player's name" do 
 				player = Player.new({ name: "Zach", color: "X" })
 				expect(player.name).to eq "Zach"
 			end
 		end
 
 		context "#color" do 
-			it "returns color" do 
+			it "returns the player's color" do 
 				player = Player.new({ name: "Zach", color: "X" })
 				expect(player.color).to eq "X"
 			end

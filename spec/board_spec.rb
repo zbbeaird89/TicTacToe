@@ -53,21 +53,21 @@ module TicTacToe
 
 			it "returns :winner if winner? is true" do 
 				board = Board.new
-				board.stub(:winner?) { true }
+				allow(board).to receive(:winner?).and_return(true)
 				expect(board.game_over).to eq :winner
 			end
 
 			it "returns :draw if winner? is false and draw? is true" do 
 				board = Board.new
-				board.stub(:winner?) { false }
-				board.stub(:draw?) { true }
+				allow(board).to receive(:winner?).and_return(false)
+				allow(board).to receive(:draw?).and_return(true)
 				expect(board.game_over).to eq :draw
 			end
 
 			it "returns false if winner? is false and draw? is false" do 
 				board = Board.new
-				board.stub(:winner?) { false }
-				board.stub(:draw?) { false }
+				allow(board).to receive(:winner?).and_return(false)
+				allow(board).to receive(:draw?).and_return(false)
 				expect(board.game_over).to eq false
 			end
 

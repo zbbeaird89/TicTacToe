@@ -1,4 +1,5 @@
 require "spec_helper"
+require "stringio"
 
 module TicTacToe
 	describe Game do 
@@ -7,14 +8,16 @@ module TicTacToe
 
 		context "#initialize" do 
 			it "randomly selects a current_player" do 
-				allow_any_instance_of(Array).to receive(:shuffle).and_return([frank, bob])
-				game = Game.new([bob, frank])
+				players = [bob, frank]
+				allow(players).to receive(:shuffle).and_return([frank, bob])
+				game = Game.new(players)
 				expect(game.current_player).to eq frank 
 			end
 
 			it "randomly selects the other_player" do 
-				allow_any_instance_of(Array).to receive(:shuffle).and_return([frank, bob])
-				game = Game.new([bob, frank])
+				players = [bob, frank]
+				allow(players).to receive(:shuffle).and_return([frank, bob])
+				game = Game.new(players)
 				expect(game.other_player).to eq bob
 			end
 		end
@@ -68,6 +71,37 @@ module TicTacToe
 				game = Game.new([bob, frank])
 				allow(game.board).to receive(:game_over).and_return(:draw)
 				expect(game.game_over_message).to eq "The game ended in a tie!"
+			end
+		end
+
+		context "#test" do 
+			it "checks for valid input" do 
+				game = Game.new([bob, frank])
+				allow(game.test).to receive(:value).and_return(3)
+				expect(game.test).to eq 3
+			end
+		end
+
+		context "#check_move" do 
+			it "passes when input is a number" do 
+				game = Game.new([bob, frank])
+				allow(game).to receive(:solicit_move).and_return(1)
+				move = game.solicit_move
+				expect(game.check_move(move)).to eq 1
+			end
+
+			it "returns false when input is not a number" do 
+				game = Game.new([bob, frank])
+				allow(game).to receive(:solicit_move).and_return("A")
+				move = game.solicit_move
+				expect(game.check_move(move)).to eq false
+			end
+
+			it "returns false when input isn't 1 - 9" do 
+				game = Game.new([bob, frank])
+				allow(game).to receive(:solicit_move).and_return(10)
+				move = game.solicit_move
+				expect(game.check_move(move)).to eq false
 			end
 		end
 	end

@@ -20,9 +20,11 @@ module TicTacToe
 		end
 
 		def formatted_grid 
+			puts ""
 			grid.each do |row|
 				puts row.map { |cell| cell.value.empty? ? "_" : cell.value }.join(" ")
 			end
+			puts ""
 		end
 
 

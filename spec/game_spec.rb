@@ -74,14 +74,6 @@ module TicTacToe
 			end
 		end
 
-		context "#test" do 
-			it "checks for valid input" do 
-				game = Game.new([bob, frank])
-				allow(game.test).to receive(:value).and_return(3)
-				expect(game.test).to eq 3
-			end
-		end
-
 		context "#check_move" do 
 			it "passes when input is a number" do 
 				game = Game.new([bob, frank])

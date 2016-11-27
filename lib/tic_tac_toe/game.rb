@@ -24,12 +24,17 @@ module TicTacToe
 			return "The game ended in a tie!" if board.game_over == :draw
 		end
 
-		def user_input
+		def player_input
 			move = nil
 			until move.is_a?(Fixnum) 
-			    puts solicit_move
-				value = gets.chomp
-				move = check_move(value)
+				if @current_player.name == "Computer"
+					value = rand(1..9).to_s
+					move = check_move(value)
+				else
+				    puts solicit_move
+					value = gets.chomp
+					move = check_move(value)
+				end
 			end
 
 			x, y = get_move(move.to_s)
@@ -37,7 +42,7 @@ module TicTacToe
 			if board.get_cell(x, y).value != ""
 				board.formatted_grid
 				puts "That cell is already taken."
-				user_input
+				player_input
 			else
 				board.set_cell(x, y, current_player.color)
 			end
@@ -58,7 +63,7 @@ module TicTacToe
 			puts "#{current_player.name} has been randomly selected as the first player."
 			while true
 				board.formatted_grid
-				user_input
+				player_input
 				if board.game_over
 					puts game_over_message
 					board.formatted_grid

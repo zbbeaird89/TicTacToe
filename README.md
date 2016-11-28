@@ -1,6 +1,6 @@
 # TicTacToe
 
-This gem was inspired by a codequizzes tutorial. The github page is located [here](https://github.com/MrPowers/tic_tac_toe). I add some extra functionality to the gem such as preventing users from overwriting one another's moves, checking if player's moves are valid, and also a simple AI so 1 player games can be played against the computer.
+This gem was inspired by a codequizzes tutorial. The github page is located [here](https://github.com/MrPowers/tic_tac_toe). I added some extra functionality to the gem such as preventing users from overwriting one another's moves, checking if player's moves are valid, and also a simple AI so 1 player games can be played against the computer.
 
 ## Installation
 

@@ -1,8 +1,6 @@
 # TicTacToe
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/tic_tac_toe`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem was inspired by a codequizzes tutorial. The github page is located [here](https://github.com/MrPowers/tic_tac_toe). I add some extra functionality to the gem such as preventing users from overwriting one another's moves, checking if player's moves are valid, and also a simple AI so 1 player games can be played against the computer.
 
 ## Installation
 
